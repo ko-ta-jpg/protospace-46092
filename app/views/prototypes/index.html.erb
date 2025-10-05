@@ -1,0 +1,28 @@
+<main class="main">
+  <div class="inner">
+ 
+<% if user_signed_in? %>
+      <div class="greeting">
+        こんにちは、<%= current_user.name %>さん!
+      </div>
+    <% end %>
+
+    <div class="card__wrapper">
+      
+    </div>
+  </div>
+</main>
+
+<h2>投稿されたプロトタイプ一覧</h2>
+
+<% @prototypes.each do |prototype| %>
+  <div class="prototype-card">
+    <h3><%= prototype.title %></h3>
+    <%= render partial: "prototype", collection: @prototypes %>
+    <% if prototype.image.attached? %>
+    <%= image_tag prototype.image, class: "prototype-image" %>
+    <% end %>
+    <p><%= prototype.catch_copy %></p>
+    <%= link_to "詳細を見る", prototype_path(prototype) %>
+  </div>
+<% end %>

@@ -1,0 +1,42 @@
+<div class="main">
+  <div class="inner">
+    <div class="user__wrapper">
+      <h2 class="page-heading">
+         <%= @user.name %> さんのページ
+      </h2>
+
+      <table class="table">
+        <tbody>
+          <tr>
+            <th class="table__col1">名前</th>
+            <td class="table__col2"><%= @user.name %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">プロフィール</th>
+            <td class="table__col2"><%= @user.profile.presence || "未登録" %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">所属</th>
+            <td class="table__col2"><%= @user.occupation.presence || "未登録" %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">役職</th>
+            <td class="table__col2"><%= @user.position.presence || "未登録" %></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 class="page-heading">
+        <%= "#{@user.name} さんのプロトタイプ" %>
+      </h2>
+
+      <div class="user__card">
+        <% if @prototypes.any? %>
+          <%= render partial: "prototypes/prototype", collection: @prototypes %>
+        <% else %>
+          <p>このユーザーの投稿はまだありません。</p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
