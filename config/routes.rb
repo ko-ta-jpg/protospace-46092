@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   get 'messages/index'
   get "up" => "rails/health#show", as: :rails_health_check
 
-  resources :prototypes do
+    resources :prototypes do
     resources :comments, only: :create
-  end
     resources :users, only: :show
+    end
 end
