@@ -42,7 +42,7 @@ class PrototypesController < ApplicationController
    def destroy
     @prototype = Prototype.find(params[:id])
     if @prototype.destroy
-      redirect_to prototype_path(@prototype), notice: "プロトタイプを削除しました"
+      redirect_to root_path, notice: "プロトタイプを削除しました"
     else
       render :show, status: :unprocessable_entity
     end

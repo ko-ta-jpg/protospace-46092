@@ -13,15 +13,15 @@
           </tr>
           <tr>
             <th class="table__col1">プロフィール</th>
-            <td class="table__col2"><%= @user.profile.presence || "未登録" %></td>
+            <td class="table__col2"><%= @user.profile %></td>
           </tr>
           <tr>
             <th class="table__col1">所属</th>
-            <td class="table__col2"><%= @user.occupation.presence || "未登録" %></td>
+            <td class="table__col2"><%= @user.occupation %></td>
           </tr>
           <tr>
             <th class="table__col1">役職</th>
-            <td class="table__col2"><%= @user.position.presence || "未登録" %></td>
+            <td class="table__col2"><%= @user.position %></td>
           </tr>
         </tbody>
       </table>
