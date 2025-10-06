@@ -8,6 +8,10 @@ Rails.application.routes.draw do
 
     resources :prototypes do
     resources :comments, only: :create
-    resources :users, only: :show
     end
-end
+
+    resources :users, only: :show
+
+    #get "up" => "rails/health#show", as: :rails_health_check
+
+  end
