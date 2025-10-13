@@ -35,7 +35,6 @@ a {
 }
 
 /* ヘッダー */
-
 .header {
   background-color: #f1f8fe;
   margin-bottom: 48px;
@@ -119,7 +118,6 @@ a {
 }
 
 /* メイン */
-
 .greeting{
   margin-bottom: 20px;
 }
@@ -130,29 +128,56 @@ a {
   font-size: 30px;
   margin-bottom: 28px;
 }
+
+/* =====================
+   トップページ（投稿一覧カード表示）
+===================== */
 .card__wrapper {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: flex-start; /* 左寄せで自然に折り返す */
+  align-items: flex-start;
+  gap: 24px; /* カード間のすき間を統一 */
   min-height: calc(100vh - 161px);
-}
-.card {
-  width: calc((100% - 50px) / 3);
   margin-bottom: 40px;
 }
-.card__img {
-  margin-bottom: 16px;
+
+.card {
+  width: calc(50% - 12px); /* 2列に変更（gapとバランス） */
+  background-color: #fff;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  padding: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+.card__img {
+  width: 100%;
+  border-radius: 4px;
+  margin-bottom: 12px;
+  object-fit: cover;
+}
+
 .card__title {
   display: block;
-  font-size: 20px;
-  margin-bottom: 8px;
+  font-size: 18px;
   font-weight: bold;
+  margin-bottom: 6px;
+  color: #333;
 }
+
 .card__summary {
-  font-size: 16px;
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 8px;
 }
+
 .card__user {
   display: block;
   font-size: 12px;
@@ -161,78 +186,267 @@ a {
   text-decoration: underline;
 }
 
-/* 詳細ページ */
-.prototype__wrapper{
-  min-height: calc(100vh - 161px);
+
+/* 入力フォーム */
+
+.signup-page {
+  margin-left: 180px;
+  padding-top: 5px; /* ← 全体の上余白を少し詰める */
+  background-color: #fff;
+  min-height: calc(100vh - 160px);
 }
-.prototype__hedding{
-  font-size: 24px;
-  font-weight: bold;
+
+.signup-title {
+  font-size: 28px; /* ← やや小さく */
+  font-weight: 600;
+  margin-bottom: 16px; /* ← タイトル下の余白を詰める */
+  color: #333;
+}
+
+/* ラベル */
+.signup-label {
+  font-weight: 500;
+  font-size: 13px;
+  margin-bottom: 2px;
+}
+
+/* 入力欄共通 */
+.input-default {
+  display: block;
+  padding: 4px 6px; /* ← 高さをさらに詰める */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 13px;
+  margin-top: 3px;
+  transition: border-color 0.2s;
+  color: #333;
+  background-color: #fff;
+}
+
+.input-default:focus {
+  outline: none;
+  border-color: #87CEFA;
+  box-shadow: 0 0 2px #87CEFA;
+}
+
+/* 幅別スタイル */
+.input-default.short {
+  width: 200px;
+}
+
+.input-default.long {
+  width: 300px;
+  height: 40px; /* ← プロフィール欄をさらに低く */
+}
+
+/* 各項目の余白をさらに圧縮 */
+.field {
+  margin-bottom: 10px; /* ← フィールド間の隙間をさらに詰める */
+}
+
+/* ボタン */
+.signup-btn {
+  background-color: #87CEFA;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 13px;
+  padding: 5px 16px; /* ← 高さを詰める */
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 8px; /* ← ボタン上の余白も調整 */
+}
+
+.signup-btn:hover {
+  background-color: #1e90ff;
+}
+
+/* 入力欄 */
+.input-default {
+  width: 300px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-top: 6px;
+  transition: border-color 0.2s;
+}
+
+.input-default:focus {
+  outline: none;
+  border-color: #87CEFA;
+  box-shadow: 0 0 3px #87CEFA;
+}
+
+/* 各入力フィールド */
+.field {
+  margin-bottom: 18px;
+}
+
+/* 登録ボタン */
+.btn {
+  width: 100px;
+  display: block;
+  padding: 10px;
+  text-align: center;
+  border: none;
+  background-color: #87CEFA;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 4px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background-color: #1e90ff;
+  cursor: pointer;
+}
+
+/* 詳細ページ */
+.prototype__wrapper {
+  min-height: calc(100vh - 161px);
   text-align: center;
 }
-.prototype__user{
+
+/* タイトル（中央寄せ＋見本サイズ） */
+.prototype__heading {
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* 投稿者名リンク */
+.prototype__user {
   display: block;
-  font-size: 16px;
+  font-size: 14px;
   color: #999;
   text-align: center;
+  margin-bottom: 20px;
+}
+
+.prototype__user-link,
+.comment_user {
   text-decoration: underline;
+  color: #999;
 }
-.prototype__image{
-  width: 40%;
-  margin: 0 auto;
-  padding: 16px 0;
+
+.prototype__user-link:hover,
+.comment_user:hover {
+  color: #87CEFA;
 }
-.prototype__detail{
+
+/* 画像（中央配置） */
+.prototype__image {
+  width: 60%;
+  margin: 0 auto 24px;
+}
+
+/* キャッチコピー・コンセプト */
+.prototype__body {
   display: flex;
-  align-items: center;
   flex-direction: column;
-  margin-bottom: 8px;
+  align-items: center;
+  margin-bottom: 24px;
 }
-.detail__title{
-  font-size: 20px;
+
+.prototype__detail {
+  width: 70%;
+  text-align: left;
+  margin-bottom: 16px;
+}
+
+.detail__title {
+  font-size: 18px;
   font-weight: bold;
+  margin-bottom: 4px;
 }
-.prototype__manage{
+
+.detail__message {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* 編集・削除ボタン */
+.prototype__manage {
   display: flex;
   justify-content: center;
-  padding-top: 16px;
+  margin-bottom: 20px;
 }
-.prototype__btn{
-  display: block;
-  padding: 0.4em 1.6em;
-  font-size: 0.4em;
+
+.prototype__btn {
+  display: inline-block;
+  padding: 8px 20px;
+  font-size: 14px;
   color: #999;
-  text-decoration: none;
-  user-select: none;
-  border: 1px #999 solid;
+  border: 1px solid #999;
   border-radius: 3px;
-  transition: 0.4s ease;
-  margin: 0 4px;
+  margin: 0 6px;
+  transition: 0.3s;
 }
-.prototype__btn:hover{
+
+.prototype__btn:hover {
   color: #fff;
-  background: #999;
+  background-color: #999;
 }
 
-.prototype__comments{
+/* コメントエリア */
+.prototype__comments {
   background-color: #f6f6f6;
-  padding: 20px;
-  margin: 28px 0 40px 0;
+  padding: 24px;
+  margin: 32px 0 40px;
+  border-radius: 5px;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
 }
 
-.comments_lists{
-  padding-left: 20px;
+.comment__field,
+#comment_content {
+  width: 100%;
+  height: 70px;
+  padding: 8px;
+  margin-bottom: 12px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
 }
 
-.comments_list{
-  list-style-type: square;
-  padding-bottom: 5px;
+.comment__btn,
+.form__btn {
+  display: inline-block;
+  padding: 8px 20px;
+  background-color: #87CEFA;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
 }
 
-.comment_user{
-  font-size: 16px;
+.comment__btn:hover,
+.form__btn:hover {
+  background-color: #1e90ff;
+}
+
+/* コメント一覧 */
+.comments_lists {
+  margin-top: 20px;
+  list-style: none;
+  padding-left: 0;
+}
+
+.comments_list {
+  background-color: #fff;
+  padding: 12px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.comment_user {
+  font-size: 13px;
+  display: block;
+  margin-top: 5px;
   color: #999;
-  text-decoration: underline;
 }
 
 /* ユーザーページ */
@@ -277,6 +491,8 @@ a {
   color: #fff;
   font-size: 10px;
 }
+
+
 
 /* タブレット対応 */
 @media (max-width: 1024px) {

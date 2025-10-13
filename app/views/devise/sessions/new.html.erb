@@ -11,20 +11,20 @@
       </div>
 
       <div class="field">
-        <%= f.label :password, "パスワード" %><br />
+        <%= f.label :password, "パスワード(6文字以上)" %><br />
         <%= f.password_field :password, autocomplete: "current-password" %>
       </div>
 
-       <div class="field">
-          <%= f.label :name, "ユーザー名" %><br />
-          <%= f.text_field :name, id:"user_name", autofocus: true, autocomplete: "username" %>
-        </div>
+       <%#<div class="field">
+          <%= f.label :name, "ユーザー名" %><%#<br />%>
+          <%#<%= f.text_field :name, id:"user_name", autofocus: true, autocomplete: "username" %>
+        <%#</div>%>
 
-      <% if devise_mapping.rememberable? %>
-        <div class="field">
+      <%# if devise_mapping.rememberable? %>
+        <%#div class="field">
           <%= f.label :remember_me %><br />
-          <%= f.check_box :remember_me %>
-        </div>
+          <%#= f.check_box :remember_me %>
+        <%#/div>
       <% end -%>
 
       <div class="actions">

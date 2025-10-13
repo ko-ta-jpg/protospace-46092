@@ -3,7 +3,7 @@ class PrototypesController < ApplicationController
   before_action :set_prototype, only: [:show, :edit, :update, :destroy]
 
   def index
-    @prototypes = Prototype.includes(:user).all.order(created_at: :desc)
+    @prototypes = Prototype.includes(:user).order(created_at: :desc)
   end
 
   def new
@@ -13,7 +13,7 @@ class PrototypesController < ApplicationController
   def create
     @prototype = current_user.prototypes.build(prototype_params)
     if @prototype.save
-      redirect_to prototype_path(@prototype), notice: "プロトタイプを投稿しました"
+      redirect_to root_path(@prototype), notice: "プロトタイプを投稿しました"
     else
       render :new, status: :unprocessable_entity
     end
