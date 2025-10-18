@@ -1,48 +1,53 @@
 <div class="form__wrapper">
-  <div class="form__text">
-    <h2 class="page-heading">ユーザー新規登録</h2>
+  <div class="inner">
+    <div class="form__text">
+      <h2 class="page-heading">ユーザー新規登録</h2>
 
-    <%= form_with model: resource, url: user_registration_path, id: 'new_user', local: true do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
+      <%= form_with model: resource, url: user_registration_path, id: 'new_user', local: true do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
 
-      <div class="field">
-        <%= f.label :email, "メールアドレス" %><br />
-        <%= f.email_field :email, id: "user_email" %>
-      </div>
+        <div class="field">
+          <%= f.label :email, "メールアドレス" %><br />
+          <%= f.email_field :email, id: "user_email" %>
+        </div>
 
-      <div class="field">
-        <%= f.label :password, "パスワード（6文字以上）" %><br />
-        <%= f.password_field :password, id: "user_password" %>
-      </div>
+        <div class="field">
+          <%= f.label :password, "パスワード（6文字以上）" %><br />
+          <%= f.password_field :password, id: "user_password" %>
+        </div>
 
-      <div class="field">
-        <%= f.label :password_confirmation, "パスワード再入力" %><br />
-        <%= f.password_field :password_confirmation, id: "user_password_confirmation" %>
-      </div>
+        <div class="field">
+          <%= f.label :password_confirmation, "パスワード再入力" %><br />
+          <%= f.password_field :password_confirmation, id: "user_password_confirmation" %>
+        </div>
 
-      <div class="field">
-        <%= f.label :name, "ユーザー名" %><br />
-        <%= f.text_field :name, id: "user_name" %>
-      </div>
+        <div class="field">
+          <%= f.label :name, "ユーザー名" %><br />
+          <%= f.text_field :name, id: "user_name" %>
+        </div>
 
-      <div class="field">
-        <%= f.label :profile, "プロフィール" %><br />
-        <%= f.text_area :profile, id: "user_profile" %>
-      </div>
+        <!-- ✅ プロフィール（横幅を広く、縦にも少し大きく、サイズ変更可） -->
+        <div class="field">
+          <%= f.label :profile, "プロフィール" %><br />
+          <%= f.text_area :profile, id: "user_profile", rows: 2, style: "width: 80%; resize: both;" %>
+        </div>
 
-      <div class="field">
-        <%= f.label :occupation, "所属" %><br />
-        <%= f.text_field :occupation, id: "user_occupation" %>
-      </div>
+        <!-- ✅ 所属（横幅を広く、サイズ変更可） -->
+        <div class="field">
+          <%= f.label :occupation, "所属" %><br />
+          <%= f.text_area :occupation, id: "user_occupation", rows: 2, style: "width: 80%; resize: both;" %>
+        </div>
 
-      <div class="field">
-        <%= f.label :position, "役職" %><br />
-        <%= f.text_field :position, id: "user_position" %>
-      </div>
+        <!-- ✅ 役職（横幅を広く、サイズ変更可） -->
+        <div class="field">
+          <%= f.label :position, "役職" %><br />
+          <%= f.text_area :position, id: "user_position", rows: 2, style: "width: 80%; resize: both;" %>
+        </div>
 
-      <div class="actions">
-        <%= f.submit "新規登録", class: :form__btn %>
-      </div>
-    <% end %>
+        <div class="actions">
+          <%= f.submit "新規登録", class: :form__btn %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>

@@ -24,7 +24,6 @@
             <%= link_to image_tag("logo.png", class: :logo), root_path %>
           </div>
           <% if user_signed_in? %>
-           <span class="greeting">こんにちは、 <%= link_to current_user.name, user_path(current_user), class: :greeting__link %>さん</span>
             <div class="nav__right">
               <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete }, class: :nav__btn %>
               <%= link_to "New Proto", new_prototype_path, class: :nav__btn %>
