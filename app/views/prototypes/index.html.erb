@@ -1,28 +1,23 @@
 <main class="main">
   <div class="inner">
-
-    <% if user_signed_in? %>
-      <div class="greeting">
-        こんにちは、<%= current_user.name %>さん!
-      </div>
-    <% end %>
-
     <div class="card__wrapper">
       <% @prototypes.each do |prototype| %>
         <div class="card">
-          <%# 画像があれば表示 %>
+          <%# プロトタイプ画像 %>
           <% if prototype.image.attached? %>
             <%= link_to image_tag(prototype.image, class: "card__img"), prototype_path(prototype) %>
           <% end %>
 
-          <div class="card__body">
-            <%= link_to prototype.title, prototype_path(prototype), class: "card__title" %>
-            <p class="card__summary"><%= prototype.catch_copy %></p>
-            <%= link_to "by #{prototype.user.name}", user_path(prototype.user), class: "card__user" %>
-          </div>
+          <%# タイトル %>
+          <%= link_to prototype.title, prototype_path(prototype), class: "card__title" %>
+
+          <%# キャッチコピー %>
+          <p class="card__summary"><%= prototype.catch_copy %></p>
+
+          <%# 投稿者名（ユーザー詳細ページへリンク） %>
+          <%= link_to "by #{prototype.user.name}", user_path(prototype.user), class: "card__user" %>
         </div>
       <% end %>
     </div>
-
   </div>
 </main>
